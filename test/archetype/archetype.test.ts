@@ -152,6 +152,24 @@ describe("identify", () => {
     for (const id of ["vehicle.wheeled.car", "world.biome", "world.settlement", "prop.crate"]) expect(library.resolve(id).sheet, id).toBeUndefined();
   });
 
+  it("identifies spacecraft: rocket, spaceship, sci-fi fighter, satellite and space station (#38)", () => {
+    expect(best("rocket")).toBe("spacecraft.rocket");
+    expect(best("raket")).toBe("spacecraft.rocket");
+    expect(best("spaceship")).toBe("spacecraft.spaceship");
+    expect(best("ruimteschip")).toBe("spacecraft.spaceship");
+    expect(best("sci-fi fighter")).toBe("spacecraft.spaceship");
+    expect(best("satellite")).toBe("spacecraft.satellite");
+    expect(best("satelliet")).toBe("spacecraft.satellite");
+    expect(best("space station")).toBe("spacecraft.station");
+    expect(best("ruimtestation")).toBe("spacecraft.station");
+
+    // Existing aircraft and vehicle queries remain unaffected
+    expect(best("jet")).toBe("aircraft.fixed-wing.jet");
+    expect(best("fighter")).toBe("aircraft.fixed-wing.fighter");
+    expect(best("drone")).toBe("aircraft.drone");
+    expect(best("tank")).toBe("vehicle.tracked.tank");
+  });
+
   it("prefers the longer, more specific name", () => {
     expect(best("fighter jet")).toBe("aircraft.fixed-wing.fighter");
     expect(best("a jet engine")).toBe("machine.jet-engine");
