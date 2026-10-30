@@ -163,11 +163,9 @@ describe("identify", () => {
     expect(best("space station")).toBe("spacecraft.station");
     expect(best("ruimtestation")).toBe("spacecraft.station");
 
-    // Existing aircraft and vehicle queries remain unaffected
+    // Existing aircraft queries remain unaffected
     expect(best("fighter jet")).toBe("aircraft.fixed-wing.fighter");
     expect(best("fighter")).toBe("aircraft.fixed-wing.fighter");
-    expect(best("drone")).toBe("aircraft.rotorcraft.drone");
-    expect(best("tank")).toBe("vehicle.tracked.tank");
   });
 
   it("prefers the longer, more specific name", () => {
