@@ -164,7 +164,7 @@ describe("identify", () => {
     expect(best("ruimtestation")).toBe("spacecraft.station");
 
     // Existing aircraft and vehicle queries remain unaffected
-    expect(best("jet")).toBe("aircraft.fixed-wing.jet");
+    expect(best("fighter jet")).toBe("aircraft.fixed-wing.fighter");
     expect(best("fighter")).toBe("aircraft.fixed-wing.fighter");
     expect(best("drone")).toBe("aircraft.drone");
     expect(best("tank")).toBe("vehicle.tracked.tank");

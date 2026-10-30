@@ -651,7 +651,7 @@
     50
    ],
    "source": "official NASA / Roscosmos data: International Space Station is about 109 m x 73 m",
-   "confidence": "A"
+   "confidence": "B"
   },
   "conventions": [
    "A space station keeps its primary truss oriented along X, pressurized modules clustered along Z, and +Y as nominal zenith."
