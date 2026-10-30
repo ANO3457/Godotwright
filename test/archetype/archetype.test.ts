@@ -166,7 +166,7 @@ describe("identify", () => {
     // Existing aircraft and vehicle queries remain unaffected
     expect(best("fighter jet")).toBe("aircraft.fixed-wing.fighter");
     expect(best("fighter")).toBe("aircraft.fixed-wing.fighter");
-    expect(best("drone")).toBe("aircraft.drone");
+    expect(best("drone")).toBe("aircraft.rotorcraft.drone");
     expect(best("tank")).toBe("vehicle.tracked.tank");
   });
 
